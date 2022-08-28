@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue 基础知识部分</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Vue 事件</h1>
+    </header>
+    <section id="events">
+      <h2>所有待做</h2>
+      <button @click.right="add(5)">加5</button>
+      <button @click="reduce(1)">减1</button>
+      <p v-once>初始值计数器: {{ counter }}</p>
+      <p>计数器: {{ counter }}</p>
+      <input v-model="message" @keyup.enter="setGoal($event)"/>
+      <p v-if="goals.length===0">没有目标{{message}}</p>
+      <ul v-else>
+        <li v-for="(goal, index) in goals" :key="goal">
+          <p @click="removeGoal(index)">{{goal}} -- {{index}}</p>
+          <input />
+        </li>
+      </ul>
+    </form>
+    </section>
+  </body>
+</html>
